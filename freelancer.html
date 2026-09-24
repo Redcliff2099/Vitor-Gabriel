@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Vitor Gabriel | Freelancer em desenvolvimento web e soluções digitais."
+    >
+
+    <title>Vitor Gabriel — Freelancer Digital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================
+           CONFIGURAÇÕES
+        ========================== */
+
+        :root {
+            --black: #101010;
+            --white: #f5f5f0;
+            --gray: #a7a7a0;
+            --line: #292929;
+            --lime: #c8ff38;
+            --card: #171717;
+
+            --radius: 22px;
+            --transition: .25s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: "Manrope", sans-serif;
+            line-height: 1.5;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1180px, calc(100% - 40px));
+            margin: auto;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+
+            background: rgba(16, 16, 16, .85);
+            backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid rgba(255,255,255,.07);
+        }
+
+        .nav {
+            min-height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: -.04em;
+        }
+
+        .logo span {
+            color: var(--lime);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+
+            color: var(--gray);
+            font-size: .85rem;
+        }
+
+        nav a {
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--white);
+        }
+
+        .nav-contact {
+            border: 1px solid var(--line);
+            padding: 9px 15px;
+            border-radius: 30px;
+        }
+
+        .nav-contact:hover {
+            border-color: var(--lime);
+            color: var(--lime);
+        }
+
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding: 150px 0 90px;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 550px;
+            height: 550px;
+
+            right: -220px;
+            top: 120px;
+
+            background: var(--lime);
+
+            filter: blur(180px);
+            opacity: .07;
+
+            pointer-events: none;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            font-family: "DM Mono", monospace;
+            font-size: .72rem;
+
+            color: var(--gray);
+
+            margin-bottom: 28px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: var(--lime);
+
+            box-shadow: 0 0 12px var(--lime);
+        }
+
+        .hero h1 {
+            max-width: 1000px;
+
+            font-size: clamp(3.8rem, 9vw, 8.5rem);
+
+            line-height: .88;
+
+            letter-spacing: -.075em;
+
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            color: var(--lime);
+        }
+
+        .hero-bottom {
+            margin-top: 55px;
+
+            display: grid;
+            grid-template-columns: 1fr auto;
+
+            align-items: end;
+
+            gap: 40px;
+        }
+
+        .hero-description {
+            max-width: 570px;
+
+            color: var(--gray);
+
+            font-size: 1rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .button {
+            padding: 14px 20px;
+
+            border-radius: 9px;
+
+            font-size: .85rem;
+            font-weight: 700;
+
+            transition: var(--transition);
+        }
+
+        .button-primary {
+            background: var(--lime);
+            color: #101010;
+        }
+
+        .button-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(200,255,56,.15);
+        }
+
+        .button-secondary {
+            border: 1px solid var(--line);
+            color: var(--white);
+        }
+
+        .button-secondary:hover {
+            border-color: var(--gray);
+        }
+
+
+        /* =========================
+           MARQUEE
+        ========================== */
+
+        .marquee {
+            overflow: hidden;
+
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+
+            padding: 17px 0;
+
+            color: var(--gray);
+
+            font-family: "DM Mono", monospace;
+            font-size: .7rem;
+
+            white-space: nowrap;
+        }
+
+        .marquee-track {
+            display: inline-flex;
+            gap: 35px;
+
+            animation: move 25s linear infinite;
+        }
+
+        .marquee strong {
+            color: var(--lime);
+        }
+
+        @keyframes move {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-30%);
+            }
+        }
+
+
+        /* =========================
+           SERVIÇOS
+        ========================== */
+
+        section {
+            padding: 120px 0;
+        }
+
+        .section-label {
+            color: var(--lime);
+
+            font-family: "DM Mono", monospace;
+
+            font-size: .7rem;
+
+            margin-bottom: 18px;
+        }
+
+        .section-title {
+            max-width: 800px;
+
+            font-size: clamp(2.5rem, 5vw, 5rem);
+
+            line-height: .95;
+
+            letter-spacing: -.06em;
+        }
+
+        .services-grid {
+            margin-top: 60px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 1px;
+
+            background: var(--line);
+
+            border: 1px solid var(--line);
+        }
+
+        .service {
+            background: var(--black);
+
+            padding: 34px;
+
+            min-height: 330px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            transition: var(--transition);
+        }
+
+        .service:hover {
+            background: var(--card);
+        }
+
+        .service-number {
+            color: var(--gray);
+
+            font-family: "DM Mono", monospace;
+
+            font-size: .7rem;
+        }
+
+        .service h3 {
+            font-size: 1.6rem;
+
+            letter-spacing: -.04em;
+
+            margin-bottom: 12px;
+        }
+
+        .service p {
+            color: var(--gray);
+
+            font-size: .88rem;
+
+            max-width: 320px;
+        }
+
+        .service-icon {
+            font-size: 2rem;
+
+            color: var(--lime);
+
+            margin-bottom: 35px;
+        }
+
+
+        /* =========================
+           PROCESSO
+        ========================== */
+
+        .process {
+            border-top: 1px solid var(--line);
+        }
+
+        .process-list {
+            margin-top: 55px;
+        }
+
+        .process-item {
+            display: grid;
+
+            grid-template-columns: 80px 1fr 1fr;
+
+            gap: 30px;
+
+            padding: 28px 0;
+
+            border-bottom: 1px solid var(--line);
+
+            transition: var(--transition);
+        }
+
+        .process-item:hover {
+            padding-left: 10px;
+        }
+
+        .process-number {
+            color: var(--lime);
+
+            font-family: "DM Mono", monospace;
+        }
+
+        .process-item h3 {
+            font-size: 1.4rem;
+        }
+
+        .process-item p {
+            color: var(--gray);
+
+            font-size: .85rem;
+        }
+
+
+        /* =========================
+           PROJETOS
+        ========================== */
+
+        .projects-grid {
+            margin-top: 55px;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 16px;
+        }
+
+        .project {
+            min-height: 330px;
+
+            background: var(--card);
+
+            border: 1px solid var(--line);
+
+            border-radius: var(--radius);
+
+            padding: 28px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            transition: var(--transition);
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            border-color: #454545;
+        }
+
+        .project-category {
+            font-family: "DM Mono", monospace;
+
+            color: var(--lime);
+
+            font-size: .65rem;
+        }
+
+        .project h3 {
+            margin-top: 12px;
+
+            font-size: 2rem;
+
+            letter-spacing: -.05em;
+        }
+
+        .project p {
+            color: var(--gray);
+
+            max-width: 480px;
+
+            margin-top: 8px;
+        }
+
+        .project-link {
+            margin-top: 30px;
+
+            font-size: .8rem;
+
+            color: var(--white);
+        }
+
+        .project-link span {
+            color: var(--lime);
+        }
+
+
+        /* =========================
+           SOBRE
+        ========================== */
+
+        .about {
+            display: grid;
+
+            grid-template-columns: .8fr 1.2fr;
+
+            gap: 70px;
+
+            align-items: start;
+        }
+
+        .about-text {
+            color: var(--gray);
+
+            font-size: 1rem;
+
+            max-width: 650px;
+        }
+
+        .about-text p + p {
+            margin-top: 18px;
+        }
+
+        .skills {
+            margin-top: 35px;
+
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+        .skill {
+            padding: 8px 12px;
+
+            border: 1px solid var(--line);
+
+            border-radius: 30px;
+
+            color: var(--gray);
+
+            font-family: "DM Mono", monospace;
+
+            font-size: .65rem;
+        }
+
+
+        /* =========================
+           CONTATO
+        ========================== */
+
+        .contact {
+            padding-bottom: 70px;
+        }
+
+        .contact-box {
+            background: var(--lime);
+
+            color: #101010;
+
+            border-radius: var(--radius);
+
+            padding: clamp(30px, 7vw, 80px);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .contact-box::after {
+            content: "↗";
+
+            position: absolute;
+
+            right: 40px;
+            bottom: -40px;
+
+            font-size: 13rem;
+
+            line-height: 1;
+
+            opacity: .08;
+        }
+
+        .contact-box h2 {
+            max-width: 850px;
+
+            font-size: clamp(3rem, 7vw, 7rem);
+
+            line-height: .85;
+
+            letter-spacing: -.07em;
+        }
+
+        .contact-box p {
+            max-width: 580px;
+
+            margin-top: 25px;
+
+            color: rgba(16,16,16,.65);
+        }
+
+        .contact-email {
+            display: inline-block;
+
+            margin-top: 30px;
+
+            padding-bottom: 5px;
+
+            border-bottom: 2px solid #101010;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            padding: 35px 0;
+
+            border-top: 1px solid var(--line);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: var(--gray);
+
+            font-size: .72rem;
+        }
+
+        footer a:hover {
+            color: var(--lime);
+        }
+
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================== */
+
+        @media (max-width: 850px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero-bottom {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-actions {
+                justify-content: flex-start;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service {
+                min-height: 260px;
+            }
+
+            .process-item {
+                grid-template-columns: 55px 1fr;
+            }
+
+            .process-item p {
+                grid-column: 2;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+        }
+
+
+        @media (max-width: 520px) {
+
+            .container {
+                width: min(100% - 24px, 1180px);
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .button {
+                text-align: center;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .service {
+                padding: 25px;
+            }
+
+            .project {
+                min-height: 280px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <div class="container nav">
+
+            <a href="#" class="logo">
+                VITOR<span>.</span>
+            </a>
+
+            <nav>
+                <ul>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#processo">Processo</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+
+                    <li>
+                        <a class="nav-contact" href="#contato">
+                            Vamos conversar
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <main>
+
+        <section class="hero" id="inicio">
+
+            <div class="container">
+
+                <div class="status">
+                    <span class="status-dot"></span>
+                    DISPONÍVEL PARA PROJETOS
+                </div>
+
+                <h1>
+                    Ideias viram
+                    <span>produtos digitais.</span>
+                </h1>
+
+                <div class="hero-bottom">
+
+                    <p class="hero-description">
+                        Sou Vitor Gabriel, estudante de Sistemas de Informação
+                        e freelancer em formação. Desenvolvo páginas, sistemas
+                        e soluções digitais com foco em simplicidade, funcionalidade
+                        e experiência do usuário.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <a href="#projetos" class="button button-primary">
+                            Ver trabalhos
+                        </a>
+
+                        <a href="#contato" class="button button-secondary">
+                            Solicitar projeto
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             MARQUEE
+        ========================== -->
+
+        <div class="marquee">
+
+            <div class="marquee-track">
+
+                <span>WEB DESIGN</span>
+                <strong>✦</strong>
+
+                <span>DESENVOLVIMENTO</span>
+                <strong>✦</strong>
+
+                <span>RESPONSIVIDADE</span>
+                <strong>✦</strong>
+
+                <span>INTERFACES</span>
+                <strong>✦</strong>
+
+                <span>AUTOMAÇÃO</span>
+                <strong>✦</strong>
+
+                <span>BANCO DE DADOS</span>
+                <strong>✦</strong>
+
+                <span>WEB DESIGN</span>
+                <strong>✦</strong>
+
+                <span>DESENVOLVIMENTO</span>
+                <strong>✦</strong>
+
+                <span>RESPONSIVIDADE</span>
+                <strong>✦</strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             SERVIÇOS
+        ========================== -->
+
+        <section id="servicos">
+
+            <div class="container">
+
+                <div class="section-label">
+                    01 / SERVIÇOS
+                </div>
+
+                <h2 class="section-title">
+                    O que posso construir para você.
+                </h2>
+
+                <div class="services-grid">
+
+                    <article class="service">
+
+                        <div>
+                            <div class="service-icon">01</div>
+
+                            <h3>Landing Pages</h3>
+
+                            <p>
+                                Páginas para apresentar produtos,
+                                serviços, projetos ou negócios de
+                                maneira clara e profissional.
+                            </p>
+                        </div>
+
+                        <span class="service-number">
+                            HTML • CSS • JavaScript
+                        </span>
+
+                    </article>
+
+
+                    <article class="service">
+
+                        <div>
+                            <div class="service-icon">02</div>
+
+                            <h3>Sites Responsivos</h3>
+
+                            <p>
+                                Sites adaptados para computador,
+                                tablet e celular, com foco em
+                                navegação simples.
+                            </p>
+                        </div>
+
+                        <span class="service-number">
+                            UI • RESPONSIVE WEB
+                        </span>
+
+                    </article>
+
+
+                    <article class="service">
+
+                        <div>
+                            <div class="service-icon">03</div>
+
+                            <h3>Pequenos Sistemas</h3>
+
+                            <p>
+                                Soluções para organizar informações,
+                                automatizar tarefas e facilitar
+                                processos.
+                            </p>
+                        </div>
+
+                        <span class="service-number">
+                            PYTHON • SQL • LOGIC
+                        </span>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROCESSO
+        ========================== -->
+
+        <section class="process" id="processo">
+
+            <div class="container">
+
+                <div class="section-label">
+                    02 / PROCESSO
+                </div>
+
+                <h2 class="section-title">
+                    Sem complicar o que pode ser simples.
+                </h2>
+
+
+                <div class="process-list">
+
+                    <div class="process-item">
+
+                        <span class="process-number">
+                            01
+                        </span>
+
+                        <h3>Conversa</h3>
+
+                        <p>
+                            Entendo a ideia, o objetivo do projeto
+                            e o que precisa ser resolvido.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-item">
+
+                        <span class="process-number">
+                            02
+                        </span>
+
+                        <h3>Planejamento</h3>
+
+                        <p>
+                            Organizamos estrutura, funcionalidades
+                            e prioridades antes de começar.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-item">
+
+                        <span class="process-number">
+                            03
+                        </span>
+
+                        <h3>Construção</h3>
+
+                        <p>
+                            Transformo o planejamento em uma solução
+                            funcional e responsiva.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-item">
+
+                        <span class="process-number">
+                            04
+                        </span>
+
+                        <h3>Entrega</h3>
+
+                        <p>
+                            Revisamos o resultado, ajustamos os
+                            detalhes e finalizamos o projeto.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJETOS
+        ========================== -->
+
+        <section id="projetos">
+
+            <div class="container">
+
+                <div class="section-label">
+                    03 / PROJETOS
+                </div>
+
+                <h2 class="section-title">
+                    Alguns trabalhos.
+                </h2>
+
+
+                <div class="projects-grid">
+
+                    <article class="project">
+
+                        <div>
+
+                            <span class="project-category">
+                                WEB / 001
+                            </span>
+
+                            <h3>
+                                Portfólio pessoal
+                            </h3>
+
+                            <p>
+                                Website responsivo desenvolvido para
+                                apresentar perfil profissional,
+                                conhecimentos e projetos.
+                            </p>
+
+                        </div>
+
+                        <a
+                            href="https://github.com/Redcliff2099"
+                            target="_blank"
+                            class="project-link"
+                        >
+                            Ver no GitHub <span>↗</span>
+                        </a>
+
+                    </article>
+
+
+                    <article class="project">
+
+                        <div>
+
+                            <span class="project-category">
+                                DATABASE / 002
+                            </span>
+
+                            <h3>
+                                Sistema de dados
+                            </h3>
+
+                            <p>
+                                Projeto acadêmico envolvendo modelagem,
+                                organização e manipulação de informações
+                                em banco de dados.
+                            </p>
+
+                        </div>
+
+                        <a
+                            href="https://github.com/Redcliff2099"
+                            target="_blank"
+                            class="project-link"
+                        >
+                            Ver projetos <span>↗</span>
+                        </a>
+
+                    </article>
+
+
+                    <article class="project">
+
+                        <div>
+
+                            <span class="project-category">
+                                AUTOMATION / 003
+                            </span>
+
+                            <h3>
+                                Scripts Python
+                            </h3>
+
+                            <p>
+                                Pequenas ferramentas desenvolvidas para
+                                praticar lógica, automação e manipulação
+                                de informações.
+                            </p>
+
+                        </div>
+
+                        <a
+                            href="https://github.com/Redcliff2099"
+                            target="_blank"
+                            class="project-link"
+                        >
+                            Ver GitHub <span>↗</span>
+                        </a>
+
+                    </article>
+
+
+                    <article class="project">
+
+                        <div>
+
+                            <span class="project-category">
+                                FUTURE / 004
+                            </span>
+
+                            <h3>
+                                Próximo projeto
+                            </h3>
+
+                            <p>
+                                Espaço reservado para o próximo projeto
+                                desenvolvido durante minha evolução
+                                como desenvolvedor.
+                            </p>
+
+                        </div>
+
+                        <span class="project-link">
+                            Em construção <span>...</span>
+                        </span>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SOBRE
+        ========================== -->
+
+        <section id="sobre">
+
+            <div class="container about">
+
+                <div>
+
+                    <div class="section-label">
+                        04 / SOBRE
+                    </div>
+
+                    <h2 class="section-title">
+                        Ainda estou construindo minha história.
+                    </h2>
+
+                </div>
+
+
+                <div class="about-text">
+
+                    <p>
+                        Meu nome é Vitor Gabriel e sou estudante de
+                        Sistemas de Informação.
+                    </p>
+
+                    <p>
+                        Atualmente estou aprofundando meus conhecimentos
+                        em programação, desenvolvimento web, bancos de
+                        dados e fundamentos da computação.
+                    </p>
+
+                    <p>
+                        O trabalho freelancer é uma forma de transformar
+                        esse aprendizado em projetos reais, criando
+                        soluções úteis enquanto continuo evoluindo.
+                    </p>
+
+
+                    <div class="skills">
+
+                        <span class="skill">HTML</span>
+                        <span class="skill">CSS</span>
+                        <span class="skill">JAVASCRIPT</span>
+                        <span class="skill">PYTHON</span>
+                        <span class="skill">C</span>
+                        <span class="skill">MYSQL</span>
+                        <span class="skill">GIT</span>
+                        <span class="skill">GITHUB</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTATO
+        ========================== -->
+
+        <section class="contact" id="contato">
+
+            <div class="container">
+
+                <div class="contact-box">
+
+                    <h2>
+                        Tem uma ideia?
+                        Vamos colocar ela
+                        para funcionar.
+                    </h2>
+
+                    <p>
+                        Se você precisa de um site, landing page,
+                        pequena aplicação ou simplesmente quer
+                        conversar sobre um projeto, entre em contato.
+                    </p>
+
+                    <a
+                        href="mailto:vg6588944@gmail.com"
+                        class="contact-email"
+                    >
+                        vg6588944@gmail.com ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <div class="container">
+
+        <footer>
+
+            <span>
+                © 2026 Vitor Gabriel
+            </span>
+
+            <span>
+                <a
+                    href="https://github.com/Redcliff2099"
+                    target="_blank"
+                >
+                    github.com/Redcliff2099
+                </a>
+            </span>
+
+            <span>
+                Desenvolvido com HTML, CSS & JS
+            </span>
+
+        </footer>
+
+    </div>
+
+</body>
+</html>
